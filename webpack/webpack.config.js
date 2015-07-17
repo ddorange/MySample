@@ -11,7 +11,7 @@ var config = {
     entry: {
         page1: './page1/entry',
         page2: './page2/entry',
-        vendors: [ 'jquery', 'velocity', 'vue', 'boombox' ]
+        vendors: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox' ]
     },
     
     resolve: {
@@ -51,6 +51,7 @@ var config = {
 
 config.addVendor('jquery',   bower_dir + '/jquery/dist/jquery.min.js');
 config.addVendor('velocity', bower_dir + '/velocity/velocity.min.js', true);
+config.addVendor('velocity.ui', bower_dir + '/velocity/velocity.ui.min.js', true);
 config.addVendor('vue', bower_dir + '/vue/dist/vue.min.js');
 config.addVendor('boombox', bower_dir + '/boombox.js/boombox.min.js');
 

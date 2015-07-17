@@ -35,21 +35,30 @@ console.log('this load Vue?', !!Vue);
  * TEST: jquery
  * @desc: global import
  */
-var $p = $('p');
-$p.attr('style', 'color: blue;');
+$('#js-jq').attr('style', 'color: blue;');
 
 
 /**
  * TEST: jquery plugin
  * @desc: 
  */
-$p.velocity({ opacity: 0 }, {
-    duration: 1000,
-    delay: 1000,
+$('#js-vlc').velocity({ translateX: 100 }, {
+    duration: 500,
+    delay: 500,
     begin: function(argument) {
         console.log('velocity begin');
     },
     complete: function () {
         console.log('velocity complete');
+    }
+});
+
+$('#js-vlc-ui').velocity('callout.shake', {
+    delay: 1000,
+    begin: function(argument) {
+        console.log('velocity-ui begin');
+    },
+    complete: function () {
+        console.log('velocity-ui complete');
     }
 });
