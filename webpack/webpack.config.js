@@ -9,8 +9,7 @@ var config = {
     context: __dirname + '/s',
     
     entry: {
-        index: './index/entry',
-        page1: [ './page1/a', './page1/b' ],
+        page1: './page1/entry',
         page2: './page2/entry',
         vendors: [ 'jquery', 'velocity', 'vue', 'boombox' ]
     },
