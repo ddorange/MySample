@@ -10,18 +10,16 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     path:
-      js:
-        src:  './s/js'
-        dest: './js'
-      style:
-        src:  './s/style'
-        dist: './style'
+      src:  './s'
+      dist: './style'
 
     exec:
       webpack: 'webpack --colors'
-      webpack_w: 'webpack --watch'
 
     watch:
+      webpack:
+        files: 's/**/*.js'
+        tasks: ['exec:webpack']
       gruntfile:
         files: 'Gruntfile.coffee'
         tasks: ['coffeelint']
@@ -31,9 +29,8 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks plugin unless plugin is 'grunt-cli'
 
   # Build task
-  grunt.registerTask 'w', ['watch', 'exec:webpack_w']
-  grunt.registerTask 'build-dev', []
-  grunt.registerTask 'build-pdt', []
+  grunt.registerTask 'build-dev', ['exec:webpack']
+  grunt.registerTask 'build-pdt', ['exec:webpack']
 
   # Default task
-  grunt.registerTask 'default', ['w']
+  grunt.registerTask 'default', ['watch']
