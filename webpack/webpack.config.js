@@ -20,6 +20,7 @@ var config = {
     
     output: {
         path: './dist',
+        publicPath: '/dist/',
         filename: '[name].bundle.js'
     },
     

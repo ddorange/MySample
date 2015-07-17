@@ -30,3 +30,6 @@ $('#js-jq').html('jQuery');
 var vlc = require('./velocity');
 vlc.anim();
 
+// TEST: lazy load
+var lazy = require('./lazy-load');
+lazy.setup();
