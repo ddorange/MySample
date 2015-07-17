@@ -1,16 +1,12 @@
 # webpack
 
 ## 1. Installation
-*setp1*
-setup tool
 ``` bash
+# setp1. install webpack and bower
 $ npm install webpack -g
 $ npm install bower -g
-```
-
-*setp2*
-setup project packages
-``` bash
+  
+# setp2. install project packages
 $ cd ./MySample/webpack
 $ npm install
 $ bower install
