@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-var BowerWebpackPlugin = require('bower-webpack-plugin');
 
 // bower alias
 var bower_dir = __dirname + '/bower_components';
