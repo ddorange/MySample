@@ -31,7 +31,8 @@ var config = {
     module: {
         noParse: [],
         loaders: [
-            { test: /\.css$/, loader: 'style!css' }
+            // { test: /\.css$/, loader: 'style!css!file' },                    // load css inline
+            { test: /\.css$/, loader: 'style/url!file?name=[name].css!' }        // load css using link tag
         ]
     },
 
