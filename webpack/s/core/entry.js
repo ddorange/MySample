@@ -1,11 +1,12 @@
-// var Vue = require('vue');
-var Vue;
+var Vue = require('vue');
 
 module.exports = {
     
     name: 'core',
     
-    isVue: function () {
-        return !!Vue;
+    setup: function () {
+        console.log();
+        // create header
+        // this.$header = new Vue();
     }
 };

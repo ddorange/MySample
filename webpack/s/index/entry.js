@@ -1,7 +1,4 @@
-/**
- * TEST: page
- */
-console.log('page2');
+console.log('index');
 
 /**
  * TEST: core module
@@ -13,7 +10,7 @@ console.log('page2');
 
 /**
  * TEST: vendor
- * @desc
+ * @desc: 
  */
 var Vue = require('vue');
 console.log('this load Vue?', !!Vue);
@@ -28,7 +25,7 @@ $('#js-jq').html('jQuery');
 
 // TEST: jquery plugin
 var vlc = require('./velocity');
-vlc.anim();
+vlc.setup();
 
 // TEST: lazy load
 var lazy = require('./lazy-load');

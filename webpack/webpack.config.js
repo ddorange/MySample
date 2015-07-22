@@ -9,9 +9,13 @@ var config = {
     context: __dirname + '/s',
     
     entry: {
-        page1: './page1/entry',
-        page2: './page2/entry',
-        vendors: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox' ]
+        demo1: './demo1/entry',
+        demo2: './demo2/entry',
+        demo3: './demo3/entry',
+        index: './index/entry',
+        // 'page4/top': './page4/top/entry',
+        vendors: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox' ],
+        // core: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox', 'core/entry' ]
     },
     
     resolve: {
@@ -19,7 +23,7 @@ var config = {
     },
     
     output: {
-        path: './dist',
+        path: './dist/',
         publicPath: '/dist/',
         filename: '[name].bundle.js'
     },
