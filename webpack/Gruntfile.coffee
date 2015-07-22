@@ -16,6 +16,8 @@ module.exports = (grunt) ->
     exec:
       webpack: 'webpack --colors'
 
+    clean: [ './dist/**/*' ]
+
     watch:
       webpack:
         files: 's/**/*.js'
@@ -29,8 +31,8 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks plugin unless plugin is 'grunt-cli'
 
   # Build task
-  grunt.registerTask 'build-dev', ['exec:webpack']
-  grunt.registerTask 'build-pdt', ['exec:webpack']
+  grunt.registerTask 'build-dev', [ 'clean', 'exec:webpack' ]
+  grunt.registerTask 'build-pdt', [ 'exec:webpack' ]
 
   # Default task
-  grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'default', [ 'watch' ]
