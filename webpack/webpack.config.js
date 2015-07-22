@@ -45,10 +45,10 @@ var config = {
     ],
 
     // my util mothod
-    addVendor: function (name, path, isPlugin) {
+    addVendor: function (name, path, isJqPlugin) {
         this.resolve.alias[name] = path;
-        
-        if (!isPlugin) {
+
+        if (!isJqPlugin) {
             this.module.noParse.push(new RegExp(path));
         }
     },
