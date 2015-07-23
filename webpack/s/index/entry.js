@@ -1,32 +1,13 @@
-console.log('index');
+(function () {
 
-/**
- * TEST: core module
- * @desc
- */
-// var core = require('./../core/entry');
-// console.log(core.name);
-// console.log('core load Vue?', core.isVue());
+    var Vue = require('vue'),
+        vlc = require('./velocity'),
+        lazy = require('./lazy-load');
 
-/**
- * TEST: vendor
- * @desc: 
- */
-var Vue = require('vue');
-console.log('this load Vue?', !!Vue);
+    console.log('index');
+    console.log('this load Vue?', !!Vue);
+    $('#js-jq').html('jQuery');
+    vlc.setup();
+    lazy.setup();
 
-
-/**
- * TEST: jquery
- * @desc: global import
- */
-$('#js-jq').html('jQuery');
-
-
-// TEST: jquery plugin
-var vlc = require('./velocity');
-vlc.setup();
-
-// TEST: lazy load
-var lazy = require('./lazy-load');
-lazy.setup();
+})();
