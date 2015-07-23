@@ -1,0 +1,24 @@
+{
+  "name": "webpack sample",
+  "version": "0.0.0",
+  "authors": [
+    "ddorage55"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "~0.12.7",
+    "velocity": "~1.2.2",
+    "jquery": "~2.1.4",
+    "lodash": "~2.4.2"
+  }
+}
