@@ -19,7 +19,9 @@ var config = {
     },
     
     resolve: {
-        alias: {}
+        alias: {
+            core: __dirname +  '/s/core'
+        }
     },
     
     output: {
