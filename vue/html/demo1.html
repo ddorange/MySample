@@ -2,11 +2,55 @@
 <head>
     <meta charset="utf-8">
 </head>
+<style>
+    .red    { color: red; }
+    .orange { color: orange; }
+    .bold   { font-weight: bold; }
+</style>
 <body>
     
+    <h1>Vue Sampel</h1>
+
+    <h3># Basic: Text Box</h3>
     <div id="js-textBox">
         <input type="text" v-model="msg">
         <div>{{msg}}</div>
+    </div>
+    
+
+    <h3># Directives</h3>
+    <div id="js-testDirectives">
+        <p v-class="
+          red    : hasError,
+          orange : hasWarning,
+          bold   :isImportant
+        ">v-class</h3>
+
+        <ul>
+            <li v-repeat="users">
+                <!-- v-repeat 配列をループ. v-repeat配下ではループ対象のオブジェクトのコンテキストになる -->
+                {{$index + 1}}: {{name}}
+            </li>
+        </ul>
+    </div>
+
+    <h3># イベントのリスニング</h3>
+    <div id="js-eventListening">
+        <button v-on="click: onClick">onClick</button>
+        <ul>
+            <li v-repeat="users" v-class="red: isColor" v-on="click: toggleColor(this)">{{name}}</li>
+        </ul>
+        <button v-on="click: showAlert('hello', $event)">showAlert</button>
+    </div>
+
+    <h3># フィルター</h3>
+    <div id="js-filter">
+        <p>{{str | uppercase}}</p>
+        
+        <input v-model="searchText">
+        <ul>
+            <li v-repeat="idols | filterBy searchText in name">{{name}}</li>
+        </ul>
     </div>
 
     <script type="text/javascript" src="/dist/vendors.js" charset="utf-8"></script>
