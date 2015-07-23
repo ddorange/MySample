@@ -12,8 +12,8 @@ var config = {
         demo1: './demo1/entry',
         demo2: './demo2/entry',
         demo3: './demo3/entry',
+        'demo4/top': './demo4/top/entry',
         index: './index/entry',
-        // 'page4/top': './page4/top/entry',
         vendors: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox' ],
         // core: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox', 'core/entry' ]
     },
