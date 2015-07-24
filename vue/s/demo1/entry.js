@@ -17,6 +17,7 @@
             hasError: true,
             hasWarning: true,
             isImportant: true,
+            isShow: false,
             users: [
                 { name: "rin"   },
                 { name: "uzuki" }
