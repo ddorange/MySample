@@ -6,13 +6,14 @@
     
     <h1>Vue Sampel</h1>
 
-    <h3># カスタムフィルター</h3>
-    <div id="custom-filter"></div>
-
-
     <h3># カスタムディレクティブ</h3>
     <div id="js-myCustom1" v-my-custom-1="yellow: true"></div>
 
+    <h3># カスタムフィルター</h3>
+    <div id="custom-filter">
+        <p v-text="text | reverse"></p>
+        <p>{{text | wrap '## ' ' ##'}}</p>
+    </div>
 
     <script type="text/javascript" src="/dist/vendors.js" charset="utf-8"></script>
     <script type="text/javascript" src="/dist/demo2.bundle.js" charset="utf-8"></script>
