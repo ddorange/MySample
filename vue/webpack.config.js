@@ -11,7 +11,7 @@ var config = {
     entry: {
         demo1: './demo1/entry',
         demo2: './demo2/entry',
-        // demo3: './demo3/entry',
+        demo3: './demo3/entry',
         vendors: [ 'jquery', 'velocity', 'velocity.ui', 'vue' ],
     },
     
@@ -58,6 +58,6 @@ config.addVendor('lodash',      bower_dir + '/lodash/dist/lodash.underscore.min.
 config.addVendor('jquery',      bower_dir + '/jquery/dist/jquery.min.js');
 config.addVendor('velocity',    bower_dir + '/velocity/velocity.min.js', true);
 config.addVendor('velocity.ui', bower_dir + '/velocity/velocity.ui.min.js', true);
-config.addVendor('vue',         bower_dir + '/vue/dist/vue.min.js');
+config.addVendor('vue',         bower_dir + '/vue/dist/vue.js');
 
 module.exports = config;
