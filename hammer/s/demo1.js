@@ -21,14 +21,19 @@
 
 
     // Pressイベントの発生間隔を短くしてみる
+    // Pressイベントのスレッショルドを発生しない距離にする
+    // -> これなら自前で書いたほうが早いか？
     var hPressCustom = new Hammer.Manager($('#js-hmPressCustom')[0]);
-    hPressCustom.add( new Hammer.Press({ time: 10 }) );
+    hPressCustom.add( new Hammer.Press({ time: 10, threshold: 5000 }) );
+
     hPressCustom.on('press', function (e) {
-        console.log('press', e);
+        console.log('press');
         $(e.target).addClass('on');
     });
     hPressCustom.on('pressup', function (e) {
-        console.log('pressup', e);
+        if (e.deltaX < 10 && e.deltaY < 10) {
+            console.log('pressup exce');
+        }
         $(e.target).removeClass('on');
     });
 
@@ -40,8 +45,7 @@
     };
 
     w.offPressCustom = function () {
-        hPressCustom.off('press');
-        hPressCustom.off('pressup');
+        hPressCustom.off('press pressup');
         hPressCustom.destroy();
     };
 
