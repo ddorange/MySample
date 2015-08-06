@@ -10,13 +10,13 @@ var resolveRoute = function () {
         require.ensure([], function () {
             var home = require('./component/home.js');
             home.setup();
-        });
+        }, 'demo5/home');
 
     } else if (location.hash === '#admin') {
         require.ensure([], function () {
             var admin = require('./component/admin.js');
             admin.setup();
-        });
+        }, 'demo5/admin');
     }
 };
 

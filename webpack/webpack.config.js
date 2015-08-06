@@ -13,7 +13,7 @@ var config = {
         demo2: './demo2/entry',
         demo3: './demo3/entry',
         'demo4/top': './demo4/top/entry',
-        index: './index/entry',
+        demo5: './demo5/entry',
         vendors: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox' ],
         // core: [ 'jquery', 'velocity', 'velocity.ui', 'vue', 'boombox', 'core/entry' ]
     },
@@ -27,7 +27,8 @@ var config = {
     output: {
         path: './dist/',
         publicPath: '/dist/',
-        filename: '[name].bundle.js'
+        filename: '[name]/bundle.js',
+        chunkFilename: '[name].[id].js'
     },
     
     module: {
@@ -47,7 +48,7 @@ var config = {
         })
     ],
 
-    devtool: '#source-map',
+    // devtool: '#source-map',
 
     // my util mothod
     addVendor: function (name, path, isJqPlugin) {
