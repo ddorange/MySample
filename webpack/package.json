@@ -18,6 +18,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
+    "lodash": "^3.10.1",
     "matchdep": "^0.3.0",
     "mkdirp": "^0.5.0",
     "node-libs-browser": "^0.5.2",
