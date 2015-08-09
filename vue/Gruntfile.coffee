@@ -21,7 +21,7 @@ module.exports = (grunt) ->
     watch:
       webpack:
         files: 's/**/*.js'
-        tasks: ['exec:webpack']
+        tasks: ['build-dev']
       gruntfile:
         files: 'Gruntfile.coffee'
         tasks: ['coffeelint']

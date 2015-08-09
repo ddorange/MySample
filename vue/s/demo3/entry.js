@@ -8,9 +8,12 @@
      * 2. Vue.componentで登録
      */
     var MyCat = Vue.extend({
-        template: '<p>にゃあ</p>',
+    
+        template: '<p class="cat">{{name}}</p>',
+        
+        // dataのデフォルト値の定義
         data: function () {
-            return { title: 'Hello!' };
+            return { name: 'tama' };
         }
     });
     Vue.component('my-cat', MyCat);
@@ -20,7 +23,7 @@
      * Vue.componentの第二引数に拡張オブジェクトを渡す
      */
     Vue.component('my-dog', {
-        template: '<p>わんわん</p>'
+        template: '<p class="dog">dog</p>'
     });
 
     var vm = new Vue({
