@@ -1,11 +1,63 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .bold { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Vue Sampel</h1>
+    <h2>コンポーネント: テンプレート</h2>
+    
+    <section id="js-custom-component">
         
-        <h1>webpack sample</h1>
-        <script type="text/javascript" src="/dist/vendors.js" charset="utf-8"></script>
-        <script type="text/javascript" src="/dist/demo4/top.bundle.js" charset="utf-8"></script>
-    </body>
+        <my-fox></my-fox>
+        
+        <my-bear></my-bear>
+        
+        <my-bear>
+            Custom
+        </my-bear>
+
+        <my-moon-bear>
+            <li class="name">name: kuma-kichi</li>
+        </my-moon-bear>
+
+    </section>
+
+
+    <!-- template -->
+    <script type="text/x-template" id="js-fox-template">
+        <p class="fox">
+            <p class="bold">FOX</p>
+            <ul>
+                <li>name: {{name}}</li>
+            </ul>
+        </p>
+    </script>
+
+    <script type="text/x-template" id="js-bear-template">
+        <p>
+            <p class="bold">BEAR: </p>
+            <content>Default</content>
+        </p>
+    </script>
+
+    <script type="text/x-template" id="js-moon-bear-template">
+        <p>
+            <p class="bold">MOON BEAR</p>
+            <ul>
+                <content select=".name">
+                    <li class="name"> name: {{name}}</li>
+                </content>
+                <li>age: {{age}}</li>
+                <li>desc: {{desc}}</li>
+            </ul>
+        </p>
+    </script>
+    <!-- /template -->
+
+<script type="text/javascript" src="/dist/vendors.js" charset="utf-8"></script>
+<script type="text/javascript" src="/dist/demo4.bundle.js" charset="utf-8"></script>
+</body>
 </html>

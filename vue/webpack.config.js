@@ -12,6 +12,7 @@ var config = {
         demo1: './demo1/entry',
         demo2: './demo2/entry',
         demo3: './demo3/entry',
+        demo4: './demo4/entry',
         vendors: [ 'jquery', 'velocity', 'velocity.ui', 'vue' ],
     },
     
