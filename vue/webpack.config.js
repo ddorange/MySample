@@ -62,15 +62,16 @@ config.addVendor('velocity.ui', bower_dir + '/velocity/velocity.ui.min.js', true
 config.addVendor('vue',         bower_dir + '/vue/dist/vue.js');
 
 // ./s 配下の entry.js を検索して config.entry  に追加する
-var files = glob.sync('./s/**/*/entry.js'),
-    regex = /(^.\/s\/)(.*)(?=\/entry.js)/;
+_.each(glob.sync('./s/**/*/entry.js'), function (file) {
+    var regex = /(^.\/s\/)(.*)(?=\/entry.js)/,
+        name = file.toString().match(regex)[2];
 
-_.each(files, function (file) {
-    var name = file.toString().match(regex)[2],
-        path = './' + name + '/entry.js';
-
-    config.entry[name] = path;
+    config.entry[name] = './' + name + '/entry.js';
 });
+
+
+
+
 
 
 module.exports = config;
