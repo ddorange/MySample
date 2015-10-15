@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .box {
+            width: 200px;
+            padding: 10px;
+            background-color: gray;
+            text-align: center
+        }
+        .on {
+            opacity: 0.5;
+        }
+        .log {
+            font-size: 10px;
+            color: gray;
+        }
+        .mtm {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Hammer.js Sampel</h1>
+
+    <p class="log">data-action属性を持つ要素に一括でタッチイベントをバインドする</p>
+    
+    <div id="js-targets">
+        <p class="box" data-action="showType" data-type="HOGE">Hoge</p>
+        <p class="box" data-action="showType" data-type="FUGA">Fuga</p>
+        
+        <div class="mtm">
+            <p id="js-cnt">0</p>
+            <p class="box" data-action="addCount">+</p>
+            <p class="box" data-action="reduceCount">-</p>
+        </div>
+    </div>
+    
+
+<script type="text/javascript" src="/bower_components/lodash/dist/lodash.underscore.min.js"></script>
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/hammer.js/hammer.js"></script>
+<script type="text/javascript" src="/s/touch.js"></script>
+<script type="text/javascript" src="/s/bundle.js"></script>
+<script>
+(function (w) {
+    'use strict';
+
+    var util = w.util || {};
+
+    var page = util.bindAction($('#js-targets')[0], {
+        data: {
+            cnt: 0
+        },
+        showType: function (el) {
+            console.log(el.getAttribute('data-type'));
+        },
+        getType: function (el) {
+            console.log(el.getAttribute('data-type'));
+        },
+        addCount: function () {
+            this.data.cnt++;
+            $('#js-cnt').html(this.data.cnt);
+        },
+        reduceCount: function () {
+            this.data.cnt--;
+            $('#js-cnt').html(this.data.cnt);
+        }
+    });
+
+})(window);
+</script>
+</body>
+</html>

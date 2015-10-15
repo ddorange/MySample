@@ -41,7 +41,7 @@ var config = {
         })
     ],
 
-    devtool: '#source-map',
+    // devtool: '#source-map',
 
     // my util mothod
     addVendor: function (name, path, isJqPlugin) {
