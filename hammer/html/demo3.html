@@ -11,23 +11,38 @@
         .on {
             opacity: 0.5;
         }
+        .log {
+            font-size: 10px;
+            color: gray;
+        }
     </style>
 </head>
 <body>
     
     <h1>Hammer.js Sampel</h1>
 
+    <p class="log">ボタンを押した時のインタラクションを再現</p>
+
     <p id="js-touch" class="box">Touch Me</p>
 
-    <div id="js-bindAction">
-        <p class="box" data-action="sayHello">Hello</p>
-        <p class="box" data-action="sayHi">Hi</p>
-        <p class="box" data-action="sayBye">Bye</p>
-    </div>
+<script type="text/javascript" src="/bower_components/lodash/dist/lodash.underscore.min.js"></script>
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/hammer.js/hammer.js"></script>
+<script type="text/javascript" src="/s/touch.js"></script>
+<script>
+(function (w) {
+    'use strict';
 
-    <script type="text/javascript" src="/bower_components/lodash/dist/lodash.underscore.min.js"></script>
-    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/bower_components/hammer.js/hammer.js"></script>
-    <script type="text/javascript" src="/s/demo3.js"></script>
+    var util = w.util || {},
+        cnt = 0,
+        manager;
+
+    manager = util.onTouch($('#js-touch')[0], function (e) {
+        console.log('ecxe' + cnt, e.deltaX, e.deltaY);
+        cnt++;
+    });
+
+})(window);
+</script>
 </body>
 </html>
