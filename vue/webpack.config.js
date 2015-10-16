@@ -3,7 +3,8 @@ var webpack = require('webpack'),
     _ = require('lodash');
 
 // bower alias
-var bower_dir = __dirname + '/bower_components';
+var bower_dir = __dirname + '/bower_components',
+    npm_dir   = __dirname + '/node_modules';
 
 // webpack config obj
 var config = {
@@ -60,6 +61,9 @@ config.addVendor('jquery',      bower_dir + '/jquery/dist/jquery.min.js');
 config.addVendor('velocity',    bower_dir + '/velocity/velocity.min.js', true);
 config.addVendor('velocity.ui', bower_dir + '/velocity/velocity.ui.min.js', true);
 config.addVendor('vue',         bower_dir + '/vue/dist/vue.js');
+config.addVendor('vue-touch',   npm_dir   + '/vue-touch/vue-touch.js', true);
+
+
 
 // ./s 配下の entry.js を検索して config.entry  に追加する
 _.each(glob.sync('./s/**/*/entry.js'), function (file) {
