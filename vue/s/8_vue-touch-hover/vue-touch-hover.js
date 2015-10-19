@@ -2,9 +2,18 @@
 
     'use strict';
 
+    // alias
     var Hammer = (typeof require === 'function')? require('hammerjs') : w.Hammer,
         $      = (typeof require === 'function')? require('jquery') : w.$,
         _      = (typeof require === 'function')? require('lodash'): w._;
+
+    // const
+    var HOVER_CLASS_NAME = 'on',
+        HAMMER_PRESS = {
+            time: 50,
+            threshold: 5000
+        },
+        TOUCH_CHANCEL_THRESHOLD = 5;
 
     var vueTouchHover = {};
 
@@ -21,60 +30,70 @@
                 }
                 
                 this.mc = this.el.hammer;
-                this.mc.add( new Hammer.Press({ time: 10, threshold: 5000 }) );
+                this.mc.add( new Hammer.Press(HAMMER_PRESS) );
             },
             update: function (fn) {
-                var self = this,
-                    mc = this.mc,
-                    vm = this.vm;
+                var self = this;
                 
                 // teardown old handler
                 if (this.handler) {
                     _.each(this.handler, function (_fn, _name) {
-                        mc.off(_name, _fn);
+                        self.mc.off(_name, _fn);
                     });
                 }
 
                 // define new handler
-                this.handler = {
-                    press: function (e) {
-                        self.pressed = true;
-                        $(e.target).addClass('on');
-                    },
-                    pressup: function (e) {
+                this.handler = {};
 
-                        if (!self.pressed) {
-                            return;
-                        }
+                // 指をつけたとき
+                this.handler.press = function (e) {
+                    self.pressed = true;
+                    $(e.target).addClass(HOVER_CLASS_NAME);
+                };
 
-                        self.pressed = false;
-                        $(e.target).removeClass('on');
+                // 指を上げたとき
+                this.handler.pressup = function (e) {
+                    if (!self.pressed) {
+                        return;
+                    }
 
-                        if (Math.max(Math.abs(e.deltaX), Math.abs(e.deltaY)) < 5) {
-                            e.targetVM = vm;
-                            fn.call(mc, e);
-                        }
+                    self.pressed = false;
+                    $(e.target).removeClass(HOVER_CLASS_NAME);
+
+                    // 移動量が閾値を超えたらキャンセルする
+                    if (Math.max(Math.abs(e.deltaX), Math.abs(e.deltaY)) < TOUCH_CHANCEL_THRESHOLD) {
+                        e.targetVM = self.vm;
+                        fn.call(self.mc, e);
                     }
                 };
 
                 _.each(this.handler, function (_fn, _name) {
-                    mc.on(_name, _fn);
+                    self.mc.on(_name, _fn);
                 });
             },
             unbind: function () {
-                var mc = this.mc;
+                var self = this;
                 
                 _.each(this.handler, function (_fn, _name) {
-                    mc.off(_name, _fn);
+                    self.mc.off(_name, _fn);
                 });
 
-                if (!Object.keys(mc.handlers).length) {
-                    mc.destroy()
+                // すべてのhandlerがなくなったら削除？
+                if (!Object.keys(this.mc.handlers).length) {
+                    this.mc.destroy()
                     this.el.hammer = null
                 }
             }
         });
-    }
+    };
+
+    vueTouchHover.config = function (option) {
+        option = option || {};
+        HOVER_CLASS_NAME = (option.hover)? option.hover : HOVER_CLASS_NAME;
+        HAMMER_PRESS     = (option.press)? option.press : HAMMER_PRESS;
+    };
+
+
 
     if (typeof exports === 'object') {
         module.exports = vueTouchHover;
