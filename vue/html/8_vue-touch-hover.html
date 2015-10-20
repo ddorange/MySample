@@ -8,9 +8,17 @@
 
     <section id="js-app">
         
-        <p class="log">{{msg}}</p>
-        <p class="msg" v-touch="htap: sayHello">Hoge</p>
-        <p class="msg" v-touch="tap: sayBye">Hoge</p>
+        <p class="log">{{title}}</p>
+
+
+        <p class="btn mtm" v-touch="htap: sayHello">htap</p>
+        
+        <p class="btn mtm" v-touch="tap: sayBye">tap</p>
+        
+        <p class="btn mtm" v-touch="pan: showPanValue">
+            pan( {{deltaX}} , {{deltaY}} )
+        </p>
+
     </section>
 
 <script type="text/javascript" src="/dist/vendors.js" charset="utf-8"></script>
