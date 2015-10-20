@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.btn {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    background-color: #333;
+    color: #FFF;
+    text-align: center;
+}
+
+.log {
+    font-size: 10px;
+    color: #aaa;
+}
+
+.on {
+    opacity: 0.5;
+}
+
+/* Layout */
+.mtm { margin-top:    10px; }
+.mbm { margin-bottom: 10px; }

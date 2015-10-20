@@ -1,16 +1,8 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link href="/resource/style.css" type="text/css" rel="stylesheet" media="all">
 <style>
-    .mbm {
-        margin-bottom: 10px;
-    }
-    .msg {
-        width: 200px;
-        height: 30px;
-        padding: 10px;
-        background-color: #eee;
-    }
     .expand-transition {
         transition: all 1s ease;
         overflow: hidden;
@@ -43,15 +35,15 @@
     <section id="js-app">
         <h2>CSSトランジション</h2>
         <button class="mbm" v-on="click: toggleShow('expand')">togge</button>
-        <div class="msg" v-if="show.expand" v-transition="expand">{{msg}}</div>
+        <div class="btn" v-if="show.expand" v-transition="expand">{{msg}}</div>
 
         <h2>CSSキーフレームアニメーション</h2>
         <button class="mbm" v-on="click: toggleShow('bounce')">togge</button>
-        <div class="msg" v-if="show.bounce" v-transition="bounce">{{msg}}</div>
+        <div class="btn" v-if="show.bounce" v-transition="bounce">{{msg}}</div>
 
         <h2>JSアニメーション</h2>
         <button class="mbm" v-on="click: toggleShow('flip')">togge</button>
-        <div class="msg" v-if="show.flip" v-transition="flip">{{msg}}</div>
+        <div class="btn" v-if="show.flip" v-transition="flip">{{msg}}</div>
     </section>
 
 <script type="text/javascript" src="/dist/vendors.js" charset="utf-8"></script>
