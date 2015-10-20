@@ -11,11 +11,11 @@
     var vm = new Vue({
         el: '#js-app',
         data: {
-            msg: 'hello!',
+            msg: 'vue-touchプラグインのサンプル',
         },
         methods: {
-            doHoge: function () {
-                console.log('HOGE!');
+            sayHello: function () {
+                console.log('Hello');
             }
         }
     });

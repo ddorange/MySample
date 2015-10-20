@@ -14,8 +14,11 @@
             msg: 'ボタンのインタラクションを再現するサンプル',
         },
         methods: {
-            doHoge: function () {
-                console.log('HOGE!');
+            sayHello: function () {
+                console.log('Hello');
+            },
+            sayBye: function () {
+                console.log('Bye');
             }
         }
     });
