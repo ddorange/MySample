@@ -94,7 +94,7 @@
                 // teardown old handler
                 if (typeof this.handler === 'function') {
                     this.mc.off(event, this.handler);
-                } else {
+                } else if (this.handler != null ) {
                     _.each(this.handler, function (_fn, _name) {
                         self.mc.off(_name, _fn);
                     });
